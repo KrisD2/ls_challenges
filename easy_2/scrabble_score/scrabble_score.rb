@@ -29,17 +29,6 @@ class Scrabble
   end
 
   def self.score(word)
-    return 0 if word.class != String
-    score = 0
-    word.upcase.chars.each do |letter|
-      Scrabble::LETTER_VALUES.each do |letter_group, value|
-        if letter_group.include? letter
-          score += value
-          break
-        end
-      end
-    end
-    score
+    new(word).score
   end
-
 end
